@@ -2,7 +2,7 @@ package level3;
 
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Cloneable {
 
 	private int employeeId;
 	private String firstName;
@@ -125,6 +125,11 @@ public class Employee {
 	
 	public int hashCode() {
 		return Objects.hash(employeeId, firstName, lastName, birthDate, ssn, salary);
+	}
+	
+	public Object clone() throws CloneNotSupportedException{
+		Employee copy = (Employee)super.clone();
+		return copy;
 	}
 	
 	

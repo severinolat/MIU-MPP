@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Position {
+public class Position implements Cloneable{
 	
 	private String title;
 	private String description;
@@ -65,6 +65,13 @@ public class Position {
 	
 	public int hashCode() {
 		return Objects.hash(title,description,employees);
+	}
+	
+	public Object clone() throws  CloneNotSupportedException{
+		Position copy = (Position)super.clone();
+		copy.employees  = new ArrayList(employees);
+		
+		return copy;
 	}
 
 }
